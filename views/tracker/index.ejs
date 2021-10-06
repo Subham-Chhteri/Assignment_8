@@ -1,0 +1,46 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+
+<main class="container">
+
+    <table class="table">
+        <thead>
+            <tr class="table-success">
+                <th scope="col">#id</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Desc</th>
+                <th scope="col">Email</th>
+                <th scope="col">Entry Time</th>
+                <th scope="col">Entry Date</th>
+                <th scope="col">Exit Time</th>
+                <th scope="col">details</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% for(let tracks of tracker){ %>
+            <tr>
+                <th scope="row">
+                    <%=tracks.id%>
+                </th>
+                <td><%=tracks.fname%></td>
+                <td><%=tracks.lname%></td>
+                <td><%=tracks.desc%></td>
+                <td><%=tracks.email%></td>
+                <td><%=tracks.etime%></td>
+                <td><%=tracks.edate%></td>
+                <td><%=tracks.extime%></td>
+                <td><a href="/tracker/<%=tracks._id %> " class="btn btn-info"> Details</a></td>
+
+              
+
+
+            </tr>
+            <%}%>
+      </table>
+</main>
+
+
+<%- include("../partials/footer") %>

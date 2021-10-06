@@ -1,0 +1,41 @@
+
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %> 
+
+
+
+<main class="container">
+  
+    <table  class="table">
+      <thead>
+        <tr >
+            <th scope="col">#id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Desc</th>
+            <th scope="col">Email</th>
+            <th scope="col">Entry Time</th>
+            <th scope="col">Entry Date</th>
+            <th scope="col">Exit Time</th>
+        </tr>
+    </thead>
+      </tr>
+                <tr>
+                  <td><%=tracks.id%> </td>
+                <td><%=tracks.fname%>&nbsp<%=tracks.lname%></td>
+                <td><%=tracks.desc%></td>
+                <td><%=tracks.email%></td>
+                <td><%=tracks.etime%> </td>
+                <td><%=tracks.edate%> </td>
+                <td><%=tracks.extime%><td>
+                </tr>
+
+        </table>
+         <a href="/tracker/<%= tracks._id %>/update " class="btn btn-success btn-small mt-2">Update</a>&nbsp
+        <form class="d-inline-block" action="/tracker/<%= tracks._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-danger btn-small mt-2">Delete</button>
+        </form>
+
+</main>
+
+<%- include('../partials/footer') %>
+              

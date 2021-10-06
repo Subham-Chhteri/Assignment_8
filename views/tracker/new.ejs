@@ -1,0 +1,43 @@
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %> 
+
+
+<main class="container">
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="display-6 mb-3">New Entry</h1>
+            <form action="/tracker" method="POST">
+                <div class="mb-3">
+                    <label for="fname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name">
+                </div>
+                <div class="mb-3">
+                    <label for="lname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Description</label>
+                    <textarea class="form-control" name="desc" id="desc" rows="5"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <label for="edate" class="form-label">Entry Date</label>
+                    <input type="text" class="form-control" name="edate" id="edate" placeholder="edate" value="<%=new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear()%>">
+                </div>
+                <div class="mb-3">
+                    <label for="etime" class="form-label">Entry time</label>
+                    <input type="text" class="form-control" name="etime" id="etime" placeholder="etime" value="<%=new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();%>">
+                </div>
+               
+                    
+                <button type="submit" class="btn btn-success btn-small">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>
+<%- include("../partials/footer") %> 
