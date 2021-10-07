@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv/config");
 const app = express();
 const trackerRoutes = require("./routes/trackerRoutes");
 const seedDB = require("./seed");
@@ -27,14 +28,22 @@ sgMail
   .send(message)
   .then((response) => console.log("Email sent successfully"))
   .catch((err) => console.log(err.message));
-mongoose
-  .connect("mongodb://localhost:27017/tracker-db")
-  .then(() => {
-    console.log("DB Connected");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+
+mongoose.connect(process.env.DB_CONNECTION).then(() => {
+  console.log("...");
+});
+
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  function (err) {
+    if (err) throw err;
+    else console.log("Connected");
+  }
+);
 
 seedDB();
 
