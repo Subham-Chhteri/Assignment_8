@@ -5,7 +5,7 @@ const seedDB = require('./seed');
 const mongoose = require('mongoose');
 const path = require('path');
 const methodOverride = require('method-override');
-
+const port = process.env.port | 2323;
 app.get('/', (req, res) => {
     res.send('use /tracker to acess tracker');
 });
@@ -45,7 +45,7 @@ app.use(methodOverride('_method'));
 
 app.use(trackerRoutes);
 
-app.listen(2323, (req, res) => {
+app.listen(port, (req, res) => {
     console.log("Server Started At Port 2323");
 });
 
