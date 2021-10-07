@@ -5,7 +5,7 @@ const seedDB = require("./seed");
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
-const port = process.env.port || 2323;
+const port = process.env.PORT || 2323;
 app.get("/", (req, res) => {
   res.send("use /tracker to acess tracker");
 });
